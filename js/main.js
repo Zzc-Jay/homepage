@@ -90,6 +90,34 @@
     return images
   }
 
+  // === Easter egg: 10 clicks on beian icon in 10s ===
+  var beianIcon = document.querySelector('.beian-icon')
+  var eggOverlay = document.getElementById('eastereggOverlay')
+  var eggClicks = 0
+  var eggTimer = null
+
+  function resetEgg() {
+    eggClicks = 0
+    if (eggTimer) { clearTimeout(eggTimer); eggTimer = null }
+  }
+
+  beianIcon.addEventListener('click', function(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    eggClicks++
+    if (eggTimer) clearTimeout(eggTimer)
+    if (eggClicks >= 10) {
+      eggOverlay.classList.add('show')
+      resetEgg()
+    } else {
+      eggTimer = setTimeout(resetEgg, 10000)
+    }
+  })
+
+  eggOverlay.addEventListener('click', function() {
+    eggOverlay.classList.remove('show')
+  })
+
   // Init
   loadSlides().then(function(images) {
     buildCarousel(images)
