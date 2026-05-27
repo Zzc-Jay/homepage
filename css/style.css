@@ -31,6 +31,19 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   opacity: 1;
 }
 
+/* Image-based slides — dark overlay for text readability */
+.carousel-slide-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.carousel-slide-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
 /* Decorative floating circles */
 .carousel-decor {
   position: absolute;
