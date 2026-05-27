@@ -114,7 +114,9 @@
     }
   })
 
-  eggOverlay.addEventListener('click', function() {
+  // Close only via button, not clicking overlay
+  document.getElementById('eastereggClose').addEventListener('click', function(e) {
+    e.stopPropagation()
     eggOverlay.classList.remove('show')
   })
 

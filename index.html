@@ -82,8 +82,12 @@
 
 <!-- Easter egg overlay -->
 <div class="easteregg-overlay" id="eastereggOverlay">
-  <img src="keaizp.png" alt="" class="easteregg-img" />
-  <p class="easteregg-hint">点击任意处关闭</p>
+  <img src="keaizp.png" alt="" class="easteregg-img" draggable="false" />
+  <button class="easteregg-close" id="eastereggClose">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
 </div>
 
 <script src="js/main.js"></script>
